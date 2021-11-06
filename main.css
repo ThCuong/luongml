@@ -1,0 +1,51 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+/* dạng ưu tiên */
+h3.hoho{
+    color: gold !important;
+}
+#huhu{
+    color: grey;
+}
+
+/* dạng đặt biến dạng tổng quát */
+:root {
+    --coi-oli: green;
+}
+
+h5{
+    color: var(--coi-oli);
+}
+h6{
+    /* hoặc dạng nội bộ */
+    --hehe-huhu: red; background-color: fuchsia;
+    color: var(--hehe-huhu);
+}
+
+
+/* #hh2 {
+    color: fuchsia;
+}
+.hh3{
+    color: green;
+}
+.oli.p1 {
+    color: royalblue;
+}
+.bbb .aaa {
+    color: yellow;
+}
+p.oli.p1 {
+    color: red;
+}
+h6, p {
+    color: saddlebrown;
+}
+div > .paragraph {
+    color: red;
+}
+.container div div{
+    color: royalblue;
+} */

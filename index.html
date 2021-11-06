@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<!-- Các thẻ nên học:
+    1. h1 - h6: thẻ tiêu đề
+    2. p      : thẻ đoạn văn
+    3. img    : thẻ hình ảnh
+    4. a      : thẻ đưa đến 1 link
+    5. ul, li : thẻ danh sách
+    6. table  : thẻ tạo bảng
+    7. input  : thẻ tạo ra các ô checkbox, radio, text,...
+    8. button : thẻ tạo nút
+    9. div    : thẻ tạo khối -->
+
+    <!-- 
+        đơn vị trong html:
+        1. px (giá trị tuyệt đối) hay dùng
+        2. % (phụ thuộc vào thẻ chưa nó)
+        3. rem (phụ thuộc vào thẻ hml) thường dùng
+        4. em (phụ thuộc vào thằng gần nhất) ít dùng
+        5. vw, vh (ví dụ: 1vh = 1% của trình duyệt)
+     -->
+
+
+<html style="font-size: 30px;">
+    <!-- Đầu -->
+    <head>      
+        <title >Thanh Cường - Shop</title>
+        <meta charset="utf-8"> <!-- thẻ chân ái -->
+        <link rel="stylesheet" href="main.css">
+        <style>
+            h1 {
+                color: red;
+                font-size: 30px;
+                background-color: steelblue;
+            }
+            h1:hover{
+                background-color: pink;
+            }
+            #boxx{
+                margin-top: 50px;
+                background-color: red; width: 50vw; height: 50vh;
+                border: 20px dashed greenyellow;
+                position:relative;
+
+            }
+            #boxx:active{
+                background-color: royalblue;
+            }
+            #boxx::before{
+                content: "before ";
+                display: block;
+                width: 70px; height: 70px;
+                background-color: sienna;
+            }
+            #boxx::after{
+                /* 2 thằng này luôn luôn phải có khi tạo 1 lớp giả */
+                content: attr(tengicungdc) ;
+                display: block;
+                /* hết */
+                
+               
+                width: 70px; height: 70px;
+                background-color: seashell;
+            }
+            a::after{
+                content: "(" attr(href) ")";
+            }
+            li:first-child{
+                color: royalblue;
+            }
+            li:last-child{
+                color: royalblue;
+            }
+            h2::selection{
+                background-color: tomato;
+                color: violet;
+            }
+            h4::first-letter{
+                font-size: 100px;
+                color: pink;
+            }
+
+            /* phần 5: */
+            .hop{
+                width: 200px;
+                height: 200px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: cornsilk;
+                
+            }
+            .hop:hover{
+                background-color: darkgreen;
+                
+            }
+            .hop1{
+                background-color: pink;
+                margin: 10px 10px 10px 10px;
+                
+            }
+            .hop2{
+                background-color: red;
+                padding: 10px 20px ;
+                margin: 10px;
+                box-sizing: border-box;
+            }
+            .hop3{
+                background-color: blue;
+                border-top: 10px ;
+                border-left: 10px;
+                border-right: 10px;
+                border-bottom: 10px;
+                border-style: solid;
+                border-color: darkgreen;
+                /* hoặc cách ngắn gọn:
+                    border: 10px (kiểu) (màu); 
+                */
+                margin: 10px;
+                /* trả về size ban đầu không bị ảnh hưởng bơi border, pađing... */
+                box-sizing: border-box; 
+            }
+            
+
+            /* Phần 6: Background
+
+        Background-clip: -quyết định là background-color của ta được đổ từ đâu? 
+                             -Border-box hoặc padding-box or content-box.
+
+        Background-origin: -tương tự clip nhưng sử dụng cho background-image
+
+        Background-image: url () , url()
+            (ảnh nào được đặt trước thì sẽ đè ảnh đặt ở sau )
+        Background-image: linear-gradient ( deg, #color, #color)
+            (chuyển màu tuyến tính), (có thể áp dụng được với image)
+            vd: background-image: linear-gradient (0, rgba, rgba),
+            url(http://abcdzsedc.comm);
+
+        Background-repeat ( lặp lại ảnh lấp đầy khoảng trống)
+            (có thể chọn repeat trục ngang x hoặc dọc y)
+            tận dụng repeat tạo được những background lớn với hoạ tiết lặp lại
+
+        Background-size (có thể đặt dạng keyword)
+            vd:
+            contain( chọn chiều ngắn hơn để tự chỉnh ảnh cho vừa cạnh còn lại)
+            cover: (lấy chiều dài hơn, chiếm hết khung nhìn)
+
+        Background-position : giúp tuỳ chỉnh được vị trí của hình ảnh nền trong CSS
+            keyword: top right bottom left center
+
+        Background-shorthand: viết ngắn lại vào cùng 1 background
+            background: image    repeat      position    /   size ; */
+            
+            #backgroundclip{
+                width: 50%;
+                height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: chartreuse;
+                color: cornsilk;
+                padding: 50px;
+                border: 20px dashed black;
+                /* đổ từ border, padding, content về: */
+                background-clip: border-box; 
+            }
+            .backgroungimage{
+                width: 50%;
+                height: 100vh;
+                /* trường hợp ảnh chèn ảnh: (nhớ có 1 hình là hình trong suốt) */
+                /* background-image: url(https://i0.wp.com/s7.anhdep24.net/images/2018/02/25/5a9bd3ff8a072bcfc15087d1385cbe08.png), 
+                url(https://i.9mobi.vn/cf/images/2015/03/nkk/hinh-dep-19.jpg);
+                background-size: 100%; (hoặc có thể dùng contain, cover.)
+                background-repeat: no-repeat; */
+
+                /* trường hợp ảnh chèn màu tự tạo: linear-gradient(( chọn 0,90,180,-90)deg, rgb(mấy cũng đc nhưng số cuối phải 0.5), rgb(như trước)) */
+                background-image: linear-gradient(0deg, rgb(27, 24, 24, 0.5), rgb(245, 181, 192, 0.5)), 
+                url(https://i0.wp.com/s7.anhdep24.net/images/2018/02/25/5a9bd3ff8a072bcfc15087d1385cbe08.png);
+                background-size: 100%;
+                background-repeat: no-repeat;
+                border: 20px dashed rgb(39, 13, 184);
+                padding: 20px;
+                box-sizing: border-box;
+                background-origin: padding-box;
+                background-position: center center;
+            }
+            
+            /* Phần 7:  Relative : vị trí tương đối(có thể chèn lên thg khác, không bị phụ thuộc ai cả)
+                        Absolute : vị trí tuyệt dối(bị phụ thuộc vào lớp cha gần nhất)
+                        Fixed : vị trí phù hợp vào khung trình duyệt */
+            .backgroungimage{
+                position: relative;
+                left: 200px;
+            }
+            .phan7{
+                position: absolute;
+                top:  50px;
+                left: 50px;
+                display: block;
+            }
+            .tieude{
+                width: 100%;
+                height: 50px;
+                background-color: black;
+                position: fixed;
+                top: 0px;
+                z-index: 1;
+            }
+            .trungthu{
+                width: 500px;
+                height: 20px;
+                background-color: chartreuse;
+                position: absolute;
+                left: 500px;
+                top: 25%;
+                align-items: center;
+                justify-content: center;
+            }
+            /* dạng sticky nhưng không đc sử dungnj nhiều */
+            h1{
+                padding: 0px 20px;
+                position: sticky;
+                top: 0px;
+            }
+        </style>
+    </head>
+
+
+    <!-- Thân -->
+    <body style="font-size: 20px;">
+        <div class="tieude">
+            <div class="trungthu" style="text-align: center;">Khoa hoc free</div>
+        </div>
+        <div id="boxx" tengicungdc="Đây là vjp pro" title="abcacb"  >
+            <div class="phan7" style="background-color: springgreen; height: 50px; width: 50px; color: tomato;"> phan 7</div>
+        </div>
+        <!-- thẻ h -->
+        <h1>hello</h1>
+        <h1 style="font-size: 100%;" id="hh1"> Học lập trình nào dạng ID <br> br la xuong dong</h1>
+        <h1 class="hh2"> Học lập trình nào dạng lớp</h1>
+
+        
+        <p class="oli p1">Phần học thêm kiến thức ở đây: <q>q là dấu kép</q> <sub>sub là xuống</sub> <em> em là in nghiêng</em> <strong> strong là in đậm</strong> <mark> mark là đánh dấu vàng</mark> <del>del là gach ngang </del></p>
+        <h2> Học lập trình ở đâu</h2>
+        <h3 id="huhu" class="hoho"> Học lập trình ở F8</h3>
+        <h4 id="avc" style="color: sienna; font-size: 20px;"> Học như thể nào</h4> 
+        <!-- <hr> là thêm dấu ngang ngăn cách 2 đoạn -->
+        <hr>
+        <bdo dir="rtl">bdo là đảo ngược chữ</bdo>
+        <p>The <abbr title="World Health Organization"> WHO</abbr> abbr là đánh dấu</p>
+        <hr>
+        <h5> Vào là biết</h5>
+        <h6> okela vào học thôi</h6>
+        <p style="text-align: center; font-family: cursive;" > Nguyễn Thanh Cường - 9096 - Đà Nẵng City</p>
+
+        <!-- thẻ img -->
+        <img width="250" src="https://img.youtube.com/vi/R6plN3FvzFY/sddefault.jpg" alt="logo"></img>
+        
+        <!-- thẻ a -->
+        <a href ="https://www.youtube.com/F8VNOfficial"> F8 Youtube Channel </a>
+        
+        <!-- thẻ ul, li -->   
+        <ul id="ppp" class="bbb">
+            <li class="aaa">HTML, CSS từ zero đến Hero</li>
+            <li class="aaa">Thiết kế web responsive</li>
+            <li class="aaa">Lập trình Javascript cơ bản</li>
+            <li class="aaa">Lập trình Javascript nâng cao</li>
+            <li class="aaa">Nhiều khóa học khác từ Front-end, tới Back-end, Mobile, Devops</li>
+        </ul>
+        
+        <div class="hop hop1">Box 1</div>
+        <div class="hop hop2">Box 2</div>
+        <div class="hop hop3">Box 3</div>
+        <div id="backgroundclip">AAAAA</div>
+        <div class="backgroungimage"></div>
+        <!-- thẻ table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Tên khóa học</th>
+                    <th>Giá</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>HTML, CSS từ zero đến Hero</td>
+                    <td>Miễn phí</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Thiết kế web responsive</td>
+                    <td>Miễn phí</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Lập trình Javascript cơ bản</td>
+                    <td>Miễn phí</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="color: red;">PHẦN ĐĂNG NHẬP</p>
+        <!-- thẻ div -->
+        <div>
+            <label for='tdn'> Tên đăng nhập</label>
+            <input id='tdn' type="text">
+            <label for="mk"> password</label>
+            <input id='mk' type="password">
+        </div>
+    
+        <div>
+            <input id='boy' name="genger" type="radio" value='Nam'>
+            <label for="boy"> Nam </label>
+            <input id='girl' name="genger" type="radio" value='Nữ'>
+            <label for="girl"> Nữ </label>
+            <input id='some' name="genger" type="radio" value='Khác'>
+            <label for="some"> Khác </label>
+        </div>
+
+        <div>
+            <input id="a" name = "answer" type="checkbox" value='Đáp án 1'>
+            <label for="a"> Đáp án 1 </label>
+            
+            <input id="b" name = "answer" type="checkbox" value='Đáp án 2'>
+            <label for="b"> Đáp án 2 </label>
+            
+            <input id="c" name = "answer" type="checkbox" value='Đáp án 3'>
+            <label for="c"> Đáp án 3 </label>
+            
+            <input id="d" name = "answer" type="checkbox" value='Đáp án 4'>
+            <label for="d"> Đáp án 4 </label>
+        </div>
+
+        <div>
+            <input type="submit" value='Đăng ký'>
+        </div>
+    </body>
+</html>
